@@ -34,6 +34,7 @@ html {
 
 .header {
     width: 100%;
+    /* this puts a 3.5 rem margin around the whole header */
     height: calc(100vh - 7rem);
     /* this puts a filter on the image */
     background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
@@ -41,6 +42,7 @@ html {
     background-size: cover;
     /* this affects the child elements */
     position: relative;
+    /* this creates a 3d environment for the balloon */
     perspective: 100rem;
 }
 
@@ -137,5 +139,41 @@ html {
 
     100% {
         transform: translateY(0);
+    }
+}
+
+.header-image{
+    width:35%;
+    animation: balloon-float 150s infinite;
+}
+
+
+
+/*animation for the balloon */
+@keyframes balloon-float{
+   /* starts the balloon nearer the viewer  */
+   0%{ 
+        transform: translateZ(40rem);
+        opacity: 1;
+    }
+    /* moves the balloon further from the viewer, and to the right */
+    40% {
+        transform: translateZ(-500rem) translateX(150rem);
+        opacity: .8;
+    }
+    /* moves the balloon further from the viewer, and to the right */
+    70% {
+        transform: translateZ(-1500rem) translateX(800rem);
+        opacity: .6;
+    }
+    /* moves the balloon closer from the viewer, and to the left */
+    80% {
+        transform: translateZ(-50rem) translateX(100rem);
+        opacity: .8;
+    }
+    /* moves the balloon to the start position */
+    100% {
+        transform: translateZ(40rem) ;
+        opacity: 1;
     }
 }
